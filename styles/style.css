@@ -1,7 +1,7 @@
 /* Tipografía */
 @font-face {
   font-family: "Rubik-Medium";
-  src: url("./assets/fonts/Rubik-Medium.ttf");
+  src: url("../assets/fonts/Rubik-Medium.ttf");
 }
 
 :root {
@@ -83,6 +83,11 @@ header {
   max-height: 240px;
   overflow-y: auto;
   font-size: var(--txt-size);
+  font-size: 14px;
+}
+
+.dropdown-menu li {
+  padding: 5px 0;
 }
 
 .dropdown-item:focus {
@@ -114,7 +119,10 @@ header {
 
 .container-input input {
   margin-right: 10px;
+  accent-color: var(--primary);
 }
+
+/* checkboxs custom styles */
 
 /* Main cards styles */
 
@@ -227,6 +235,10 @@ header {
 
 table {
   margin-top: 20px;
+}
+
+table input {
+  accent-color: var(--primary);
 }
 
 .rate-custom {
