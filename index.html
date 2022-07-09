@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge | Gabriel Alberini</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/luggage.svg"
+      type="image/x-icon"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <!-- Font Awesome Icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body onload="traerDatos()">
+    <header class="container">
+      <div class="txt-filter">
+        <p>Filter by</p>
+      </div>
+      <div class="dropdown">
+        <button
+          class="btn btn-light dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          All
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Group A</a></li>
+          <li><a class="dropdown-item" href="#">Group B</a></li>
+          <li><a class="dropdown-item" href="#">Group C</a></li>
+          <li><a class="dropdown-item" href="#">Group D</a></li>
+          <li><a class="dropdown-item" href="#">Group E</a></li>
+          <li><a class="dropdown-item" href="#">Group F</a></li>
+          <li><a class="dropdown-item" href="#">Group G</a></li>
+          <li><a class="dropdown-item" href="#">Group H</a></li>
+          <li><a class="dropdown-item" href="#">Group I</a></li>
+          <li><a class="dropdown-item" href="#">Group J</a></li>
+          <li><a class="dropdown-item" href="#">Group K</a></li>
+          <li><a class="dropdown-item" href="#">Group L</a></li>
+          <li><a class="dropdown-item" href="#">Group M</a></li>
+          <li><a class="dropdown-item" href="#">Group N</a></li>
+          <li><a class="dropdown-item" href="#">Group Ñ</a></li>
+          <li><a class="dropdown-item" href="#">Group O</a></li>
+          <li><a class="dropdown-item" href="#">Group P</a></li>
+          <li><a class="dropdown-item" href="#">Group Q</a></li>
+          <li><a class="dropdown-item" href="#">Group R</a></li>
+          <li><a class="dropdown-item" href="#">Group S</a></li>
+          <li><a class="dropdown-item" href="#">Group T</a></li>
+          <li><a class="dropdown-item" href="#">Group U</a></li>
+          <li><a class="dropdown-item" href="#">Group V</a></li>
+          <li><a class="dropdown-item" href="#">Group W</a></li>
+          <li><a class="dropdown-item" href="#">Group X</a></li>
+          <li><a class="dropdown-item" href="#">Group Y</a></li>
+          <li><a class="dropdown-item" href="#">Group Z</a></li>
+        </ul>
+      </div>
+      <div class="container-input">
+        <div>
+          <input type="checkbox" value="" class="checkbox" id="" />
+          <label for="">Manual transmition</label>
+        </div>
+        <div>
+          <input type="checkbox" value="" class="checkbox" id="" />
+          <label for="">5 seats</label>
+        </div>
+        <div>
+          <input type="checkbox" value="" class="checkbox" id="" />
+          <label for="">Convertibles</label>
+        </div>
+        <div>
+          <input type="checkbox" value="" class="checkbox" id="" />
+          <label for="">Automatic transmission</label>
+        </div>
+        <div>
+          <input type="checkbox" value="" class="checkbox" id="" />
+          <label for="">7 seats or more</label>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="main-content-cards"></section>
+    </main>
+
+    <!-- Modal -->
+    <div id="exampleModal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Rate information</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="modal-subtitle">AR - Most Inclusive</p>
+            <ul>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i> Unlimited mileage
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i> Unlimited mileage
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i> Unlimited mileage
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i> Unlimited mileage
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p class="text-center">&copy; 2022 Gabriel Alberini</p>
+      </div>
+    </footer>
+
+    <!-- Boostrap Js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- APP Script -->
+    <script src="./app.js"></script>
+  </body>
+</html>

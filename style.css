@@ -1,0 +1,297 @@
+/* Tipografía */
+@font-face {
+  font-family: "Rubik-Medium";
+  src: url("./assets/fonts/Rubik-Medium.ttf");
+}
+
+:root {
+  /* Colors */
+  --primary: #d40029;
+  --black-hover: #222222;
+  --border-color: #b90126;
+  --color-body: #e4e4e4;
+  --grey: #b7b7b7;
+  --white: white;
+  --black: black;
+
+  /* Box shadow */
+  --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.034), 0 6px 6px rgba(0, 0, 0, 0.041);
+
+  /* Font size */
+  --txt-size: 12px;
+}
+
+/* Styles reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik-Medium";
+}
+
+/* Main Styles */
+
+body {
+  background-color: var(--color-body);
+}
+
+main {
+  min-height: 100vh;
+}
+
+/* Header styles */
+
+header {
+  max-width: 1200px;
+  padding: 20px;
+  margin: 10px 0 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+  background-color: var(--white);
+}
+
+.txt-filter {
+  display: flex;
+  font-size: var(--txt-size);
+}
+
+.txt-filter > p {
+  margin: auto;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* Select custom styles */
+
+.dropdown {
+  width: 110px;
+  font-size: var(--txt-size);
+}
+
+.dropdown > button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-menu {
+  max-height: 240px;
+  overflow-y: auto;
+  font-size: var(--txt-size);
+}
+
+.dropdown-item:focus {
+  background-color: var(--primary);
+}
+
+.dropdown-menu::-webkit-scrollbar {
+  width: 8px;
+  background: var(--white);
+  border-radius: 0 8px 8px 0;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: #525861;
+  border-radius: 8px;
+}
+
+/* Checkboxs input styles */
+
+.container-input {
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-self: center;
+  justify-self: center;
+  gap: 10px;
+  font-size: var(--txt-size);
+}
+
+.container-input input {
+  margin-right: 10px;
+}
+
+/* Main cards styles */
+
+.main-content-cards {
+  width: 1100px;
+  margin: auto;
+  font-size: var(--txt-size);
+}
+
+.content-cards {
+  background-color: var(--white);
+  display: flex;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.characts-card {
+  width: 40%;
+}
+
+.cont-ing-chracts-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.cont-ing-chracts-card > img {
+  width: 350px;
+  margin-bottom: 20px;
+}
+
+.characts-card-data {
+  padding-left: 20px;
+}
+
+.characts-card-data p {
+  color: var(--grey);
+  font-weight: bold;
+  line-height: 1px;
+  padding-bottom: 15px;
+}
+
+.characts-card-data img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.characts-card-data ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.characts-card-data li {
+  margin-bottom: 10px;
+}
+
+.rates-card {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.head-title-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 200px;
+}
+
+.head-title-card h3 {
+  color: var(--primary);
+}
+
+.head-title-card p {
+  color: var(--black);
+  margin-bottom: 5px;
+  font-size: 11px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.head-title-card button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 12px;
+  border: 1 solid var(--border-color);
+  gap: 10px;
+  background-color: var(--primary);
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-right: 50px;
+}
+
+.head-title-card button:hover {
+  background-color: var(--black-hover);
+}
+
+.table-rates-card p {
+  color: var(--grey);
+  font-weight: bold;
+  line-height: 1px;
+}
+
+table {
+  margin-top: 20px;
+}
+
+.rate-custom {
+  color: var(--primary);
+}
+.rates-price {
+  color: var(--border-color);
+}
+
+.rates-price span {
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+/* Input radio custom styles */
+
+/* Modal */
+
+.modal-header {
+  border: none;
+}
+
+.modal-title {
+  color: var(--primary);
+  padding-left: 30px;
+  font-size: var(--txt-size);
+}
+
+.modal-subtitle {
+  color: var(--grey);
+  padding-left: 30px;
+  margin-bottom: 30px;
+  font-size: var(--txt-size);
+  letter-spacing: 1px;
+}
+
+.modal-body ul {
+  list-style: none;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: var(--txt-size);
+}
+
+.modal-body i {
+  color: var(--primary);
+  padding-right: 10px;
+}
+
+/* Tools */
+
+.internal-link {
+  color: var(--primary);
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+}
+
+/* Footer styles */
+
+footer {
+  padding: 10px 0;
+  background-color: var(--black);
+  color: var(--white);
+  margin-top: 50px;
+}
