@@ -1,4 +1,4 @@
-# Mi primer PORTFOLIO con BOOTSTRAP
+# Challenge | Gabriel Alberini
 
 ## Intro
 
@@ -34,13 +34,13 @@ El proyecto cuenta con un DEMO desplegada en vercel.
 
 - [DEMO](https://challenge-cars.vercel.app/)
 
-## We have used
+## Librerias y conocimientos aplicados
 
 - HTML | CSS | Javascript
 - Bootstrap
 - Font awesome Icon
 
-## Resources
+## Funtes
 
 [Bootstrap](https://getbootstrap.com/)
 
