@@ -1,4 +1,5 @@
 /* Tipografía */
+
 @font-face {
   font-family: "Rubik-Medium";
   src: url("../assets/fonts/Rubik-Medium.ttf");
@@ -6,6 +7,7 @@
 
 :root {
   /* Colors */
+
   --primary: #d40029;
   --black-hover: #222222;
   --border-color: #b90126;
@@ -15,9 +17,11 @@
   --black: black;
 
   /* Box shadow */
+
   --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.034), 0 6px 6px rgba(0, 0, 0, 0.041);
 
   /* Font size */
+
   --txt-size: 12px;
 }
 
@@ -42,10 +46,10 @@ main {
 
 /* Header styles */
 
-header {
+.container-header {
   max-width: 1200px;
   padding: 20px;
-  margin: 10px 0 20px 0;
+  margin: 10px auto 20px auto;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -65,7 +69,7 @@ header {
   font-weight: bold;
 }
 
-/* Select custom styles */
+/* Select control styles */
 
 .dropdown {
   width: 110px;
@@ -121,8 +125,6 @@ header {
   margin-right: 10px;
   accent-color: var(--primary);
 }
-
-/* checkboxs custom styles */
 
 /* Main cards styles */
 
@@ -244,6 +246,7 @@ table input {
 .rate-custom {
   color: var(--primary);
 }
+
 .rates-price {
   color: var(--border-color);
 }
@@ -252,8 +255,6 @@ table input {
   font-size: 24px;
   margin-left: 10px;
 }
-
-/* Input radio custom styles */
 
 /* Modal */
 
@@ -306,4 +307,91 @@ footer {
   background-color: var(--black);
   color: var(--white);
   margin-top: 50px;
+}
+
+/* Media queries tablet */
+
+@media (max-width: 850px) {
+  .container-header {
+    max-width: 830px;
+  }
+
+  .container-input input {
+    margin-right: 0;
+  }
+
+  .main-content-cards {
+    max-width: 780px;
+  }
+
+  .cont-ing-chracts-card {
+    width: 250px;
+  }
+
+  .cont-ing-chracts-card > img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Media queries phone */
+
+@media (max-width: 450px) {
+  .container-header {
+    max-width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+  .container-input {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .container-input div {
+    width: 200px;
+  }
+
+  .main-content-cards {
+    max-width: 90%;
+  }
+
+  .content-cards {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .characts-card-data {
+    padding-left: 0;
+  }
+
+  .characts-card-data li {
+    width: 200px;
+  }
+
+  .head-title-card p {
+    margin-right: 10px;
+  }
+
+  .head-title-card button {
+    width: 130px;
+    margin: auto;
+  }
+
+  .rates-card {
+    width: 100%;
+  }
+
+  td label {
+    font-size: 10px;
+  }
+
+  .internal-link {
+    font-size: 10px;
+  }
+
+  .rates-price span {
+    font-size: 10px;
+    margin-left: 0;
+  }
 }

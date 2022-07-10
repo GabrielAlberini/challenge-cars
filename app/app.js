@@ -3,12 +3,16 @@ const MAIN_CONTAINER_DOM = document.querySelector(".main-content-cards");
 const MODAL_CONTAINER_DOM = document.querySelector(".container-modal");
 const MODAL_SUBTITLE = document.querySelector(".container-subtitle");
 const checkboxs = document.querySelectorAll(".checkbox");
-// Modal
+
+// Modal Bootstrap
 const myModal = document.getElementById("myModal");
 const myInput = document.getElementById("myInput");
 
 // Array Car
 const listCars = [];
+
+// Filters
+const filters = [];
 
 // API Call
 function apiCall() {
@@ -23,7 +27,7 @@ function apiCall() {
         cars.forEach((car) => listCars.push(car));
       });
       dataDomPrint(listCars);
-      filterFunction();
+      updateFilters();
     });
 }
 
@@ -31,7 +35,7 @@ function apiCall() {
 function dataDomPrint(arrCars) {
   MAIN_CONTAINER_DOM.innerHTML = "";
 
-  arrCars.forEach((auto) => {
+  arrCars.forEach((car) => {
     // Extraction of the RateData VALUE and KEY of each car
     const rateDataKey = [];
     const rateDataValue = [];
@@ -39,7 +43,7 @@ function dataDomPrint(arrCars) {
     id = "";
 
     // Get rates
-    Object.entries(auto.Rates).map((entry) => {
+    Object.entries(car.Rates).map((entry) => {
       const [key, ratesValues] = entry;
 
       // Rate data
@@ -56,37 +60,37 @@ function dataDomPrint(arrCars) {
         <article class="content-cards">
           <div class="characts-card">
             <div class="cont-ing-chracts-card">
-              <img src="${auto.PictureURL}" alt="" />
+              <img src="${car.PictureURL}" alt="" />
             </div>
             <div class="characts-card-data">
               <p>CHARACTERISTICS</p>
               <ul>
                 <li>
-                  <img src="./assets/images/seats.svg" alt="img de icono" />${auto.Features2.seats} seats
+                  <img src="./assets/images/seats.svg" alt="img de icono" />${car.Features2.seats} seats
                 </li>
                 <li>
-                  <img src="./assets/images/luggage.svg" alt="img de icono" />${auto.Features2.largeSuitcase}
+                  <img src="./assets/images/luggage.svg" alt="img de icono" />${car.Features2.largeSuitcase}
                   large suitcase
                 </li>
                 <li>
-                  <img src="./assets/images/bag.svg" alt="img de icono" />${auto.Features2.smallSuitcase}
+                  <img src="./assets/images/bag.svg" alt="img de icono" />${car.Features2.smallSuitcase}
                   small suitcase
                 </li>
                 <li>
-                  <img src="./assets/images/door.svg" alt="img de icono" />${auto.Features2.doors}
+                  <img src="./assets/images/door.svg" alt="img de icono" />${car.Features2.doors}
                   doors
                 </li>
                 <li>
                   <img
                     src="./assets/images/transmision.svg"
                     alt="img de icono"
-                  />${auto.Features2.transmition} Transmition
+                  />${car.Features2.transmition} Transmition
                 </li>
                 <li>
                   <img
                     src="./assets/images/air-conditioning.svg"
                     alt="img de icono"
-                  />${auto.Features2.air}
+                  />${car.Features2.air}
                 </li>
               </ul>
             </div>
@@ -94,9 +98,9 @@ function dataDomPrint(arrCars) {
           <div class="rates-card">
             <div class="head-title-card">
               <div>
-                <h3>${auto.Features2.category}</h3>
-                <p>GROUP ${auto.VehGroup} (${auto.Code})</p>
-                <p>${auto.Name}</p>
+                <h3>${car.Features2.category}</h3>
+                <p>GROUP ${car.VehGroup} (${car.Code})</p>
+                <p>${car.Name}</p>
               </div>
               <div>
                 <button><i class="fa-solid fa-check"></i> Book now!</button>
@@ -216,46 +220,44 @@ function dataDomPrint(arrCars) {
   });
 }
 
-// Filter array function
-function filterFunction() {
+// Update filters
+function updateFilters() {
   checkboxs.forEach((checkbox) => {
     checkbox.addEventListener("change", function () {
-      const listCarsFiltered = [];
-      if (this.checked === true && checkbox.value == "manualTransmition") {
-        const filteredCars = listCars.filter(
-          (auto) => auto.TransmissionType !== "Automatic"
-        );
-        const listCarsFiltered = [...filteredCars];
-        dataDomPrint(listCarsFiltered);
-      } else if (this.checked === true && checkbox.value == "autoTransmition") {
-        const filteredCars = listCars.filter(
-          (auto) => auto.TransmissionType === "Automatic"
-        );
-        const listCarsFiltered = [...filteredCars];
-        dataDomPrint(listCarsFiltered);
-      } else if (this.checked === true && checkbox.value == "fiveSeats") {
-        const filteredCars = listCars.filter(
-          (auto) => Number(auto.Features2.seats) === 5
-        );
-        const listCarsFiltered = [...filteredCars];
-        dataDomPrint(listCarsFiltered);
-      } else if (this.checked === true && checkbox.value == "sevenSeats") {
-        const filteredCars = listCars.filter(
-          (auto) => Number(auto.Features2.seats) >= 7
-        );
-        const listCarsFiltered = [...filteredCars];
-        dataDomPrint(listCarsFiltered);
-      } else if (this.checked === true && checkbox.value == "convertible") {
-        const filteredCars = listCars.filter(
-          (auto) => auto.Features2.category === "Convertible"
-        );
-        const listCarsFiltered = [...filteredCars];
-        dataDomPrint(listCarsFiltered);
+      if (this.checked === true) {
+        filters.push(checkbox.value);
+        console.log(filters);
       } else {
-        dataDomPrint(listCars);
+        filters.splice(filters.indexOf(checkbox.value), 1);
+        console.log(filters);
       }
+      filterFunction();
     });
   });
+}
+
+//Filter function
+function filterFunction() {
+  const listCarsFiltered = listCars.filter((car) => {
+    let shouldShow = true;
+    if (filters.includes("manualTransmition")) {
+      shouldShow = shouldShow && car.TransmissionType !== "Automatic";
+    }
+    if (filters.includes("fiveSeats")) {
+      shouldShow = shouldShow && Number(car.Features2.seats) === 5;
+    }
+    if (filters.includes("convertible")) {
+      shouldShow = shouldShow && car.Features2.category === "Convertible";
+    }
+    if (filters.includes("autoTransmition")) {
+      shouldShow = shouldShow && car.TransmissionType === "Automatic";
+    }
+    if (filters.includes("sevenSeats")) {
+      shouldShow = shouldShow && Number(car.Features2.seats) >= 7;
+    }
+    return shouldShow;
+  });
+  dataDomPrint(listCarsFiltered);
 }
 
 // Modal show function
@@ -271,9 +273,9 @@ function showModalInclusions(nameInclusion, inclusions) {
     MODAL_SUBTITLE.innerHTML = `<p class="modal-subtitle">${nameInclusion}</p>`;
     // Inclusions List
     arrInclusions.forEach(
-      (feature) =>
+      (inclusion) =>
         (MODAL_CONTAINER_DOM.innerHTML += `<li>
-                  <i class="fa-solid fa-chevron-right"></i>${feature}
+                  <i class="fa-solid fa-chevron-right"></i>${inclusion}
                 </li>`)
     );
   } else {
